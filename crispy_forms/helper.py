@@ -368,9 +368,9 @@ class FormHelper(DynamicLayoutHandler):
             'field_class': self.field_class,
             'include_media': self.include_media
         }
-        
+
         if template_pack == 'bootstrap4':
-            bootstrap_size_match = re.findall('col-(xl|lg|md|sm)-(\d+)', self.label_class)
+            bootstrap_size_match = re.findall(r'col-(xl|lg|md|sm)-(\d+)', self.label_class)
             if bootstrap_size_match:
                 if template_pack == 'bootstrap4':
                     offset_pattern = 'offset-%s-%s'
@@ -378,7 +378,7 @@ class FormHelper(DynamicLayoutHandler):
                     offset_pattern = 'col-%s-offset-%s'
                 items['bootstrap_checkbox_offsets'] = [offset_pattern % m for m in bootstrap_size_match]
         else:
-            bootstrap_size_match = re.findall('col-(lg|md|sm|xs)-(\d+)', self.label_class)
+            bootstrap_size_match = re.findall(r'col-(lg|md|sm|xs)-(\d+)', self.label_class)
             if bootstrap_size_match:
                 if template_pack == 'bootstrap4':
                     offset_pattern = 'offset-%s-%s'
